@@ -1,0 +1,25 @@
+<h2>Cesar algorithm with the keyword</h2>
+<div class="container-fluid" ng-controller="View1Ctrl">
+    <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="well well-lg">
+                <input type="text" class="form-control top-buffer" placeholder="Key" ng-model="key">
+                <input type="text" class="form-control top-buffer" placeholder="Keyword" ng-model="keyword">
+                <div class="top-buffer border-wrapper">
+                    <input type="radio" id="encrypt" name="radios" title="Encrypt" checked ng-click="switcher">
+                    <label for="encrypt">Encrypt</label>
+                    <input type="radio" id="decrypt" name="radios" title="Decrypt" ng-click="!switcher">
+                    <label for="decrypt">Decrypt</label>
+                </div>
+                <h4>Write text to encrypt:</h4>
+                <textarea class="form-control">Hello World!</textarea>
+                <div class="btn-group top-buffer">
+                  <button type="button" class="btn btn-default">Encrypt</button>
+                  <button type="button" class="btn btn-default">Clear</button>
+                  <button type="button" class="btn btn-default">Info</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
