@@ -24,7 +24,8 @@ angular.module('myApp.view1', ['ngRoute'])
 			for (var i = 0;  i < keywordLength; i++) {
 				alert('hello');
 				dictionary[Object.keys(dictionary)[startPosition]] = $scope.keyword[i];
-				array.splice(array.indexOf);
+				array.splice(array.indexOf($scope.keyword), 1);
+				console.log(array);
 			}
 
 		}
