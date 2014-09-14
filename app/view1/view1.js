@@ -45,16 +45,30 @@ angular.module('myApp.view1', ['ngRoute'])
 			console.log(dictionary);
 
 			var text = $scope.inputText.toLowerCase();
-
-			//(function () {
-				var res = "";
-				for (var i = 0; i < text.length; i++) {
+			var res = "";
+			for (var i = 0; i < text.length; i++) {
+				if (text[i] == " ") {
+					res+= " ";
+				}
+				else if (text[i] == ",") {
+					res+= ",";
+				}
+				else if (text[i] == ".") {
+					res+= ".";
+				}
+				else if (text[i] == "?") {
+					res+= "?";
+				}
+				else if (text[i] == "!") {
+					res+= "!";
+				}
+				else {				
 					res+= dictionary[text[i]];
 					console.log(dictionary[text[i]]);
-				};
-				$scope.outputText = res;
-			//}());
+				}
 
+			};
+			$scope.outputText = res;
 		}
 
 
