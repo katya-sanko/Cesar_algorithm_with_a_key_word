@@ -1,4 +1,8 @@
 /* app css stylesheet */
+
+body{
+	background: #E7E7E7 !important;
+}
 label, h1, h2, h3, h4, h5 {
   color: #777 !important;
 }
@@ -13,7 +17,7 @@ h2 {
 
 .main-color, .well {
   /*background: #74899E !important;*/
-  background: #D8C2A4 !important;
+  background: #D0E4BF !important;
 }
 
 .border-wrapper {

@@ -11,6 +11,9 @@ angular.module('myApp.view1', ['ngRoute'])
 
 .controller('View1Ctrl', ['$scope', function($scope) {
 	$scope.switcher = true;
+	$scope.onlyNumbers = /^\d+$/;
+	$scope.inputText = "Some text to encrypt."
+	$scope.outputText = "Result of encryption."
 	
 
 	$scope.performAction = function () {
@@ -25,6 +28,7 @@ angular.module('myApp.view1', ['ngRoute'])
 				if (currentPosition > 25) {
 					currentPosition = 0;
 				}
+				$scope.keyword.toLowerCase();
 				console.log('hello' + $scope.keyword[i]);
 				dictionary[Object.keys(dictionary)[currentPosition]] = $scope.keyword[i];
 				array.splice(array.indexOf($scope.keyword[i]), 1);
@@ -39,6 +43,17 @@ angular.module('myApp.view1', ['ngRoute'])
 			}
 			console.log(array);
 			console.log(dictionary);
+
+			var text = $scope.inputText.toLowerCase();
+
+			//(function () {
+				var res = "";
+				for (var i = 0; i < text.length; i++) {
+					res+= dictionary[text[i]];
+					console.log(dictionary[text[i]]);
+				};
+				$scope.outputText = res;
+			//}());
 
 		}
 
