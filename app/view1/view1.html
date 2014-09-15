@@ -7,15 +7,15 @@
                     <input type="text" name="key" class="form-control top-buffer" placeholder="Key" ng-model="key" ng-pattern="onlyNumbers" required>{{form.key.$valid}}
                     <input type="text" class="form-control top-buffer" placeholder="Keyword" ng-model="keyword" required>
                     <div class="top-buffer border-wrapper">
-                        <input type="radio" id="encrypt" name="radios" title="Encrypt" checked ng-click="switcher">
+                        <input type="radio" id="encrypt" name="radios" ng-model="switcher" ng-value="true" checked>
                         <label for="encrypt">Encrypt</label>
-                        <input type="radio" id="decrypt" name="radios" title="Decrypt" ng-click="!switcher">
+                        <input type="radio" id="decrypt" name="radios" ng-model="switcher" ng-value="false">
                         <label for="decrypt">Decrypt</label>
                     </div>
                     <h4>Write text to encrypt:</h4>
                     <textarea  ng-model="inputText" class="form-control">Hello World!</textarea>
                     <div class="btn-group top-buffer">
-                      <button type="button" class="btn btn-default" ng-click="performAction()">Encrypt</button>
+                      <button type="button" class="btn btn-default" ng-click="performAction()"><span>{{ switcher ? 'Encrypt' : 'Decrypt'}}</span></button>
                       <button type="button" class="btn btn-default">Clear</button>
                       <button type="button" class="btn btn-default">Clear result</button>
                     </div>

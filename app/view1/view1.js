@@ -12,17 +12,51 @@ angular.module('myApp.view1', ['ngRoute'])
 .controller('View1Ctrl', ['$scope', function($scope) {
 	$scope.switcher = true;
 	$scope.onlyNumbers = /^\d+$/;
-	$scope.inputText = "Some text to encrypt."
-	$scope.outputText = "Result of encryption."
+	$scope.inputText = "Some text to encrypt.";
+	$scope.outputText = "Result of encryption.";
 	
 
-	$scope.performAction = function () {
-		//debugger;
+	$scope.resultFormation = function (dictionary) {
+		var text = $scope.inputText.toLowerCase(), res = "";
+		for (var i = 0; i < text.length; i++) {
+			if (text[i] == " ") {
+				res+= " ";
+			}
+			else if (text[i] == ",") {
+				res+= ",";
+			}
+			else if (text[i] == ".") {
+				res+= ".";
+			}
+			else if (text[i] == "?") {
+				res+= "?";
+			}
+			else if (text[i] == "!") {
+				res+= "!";
+			}
+			else if ($scope.switcher) {				
+				res+= dictionary[text[i]];
+				console.log("ITS INCRYPT");		
+			}
+			else if (!$scope.switcher) {		
+				console.log("ITS DECRYPT");		
+				for(var key in dictionary){
+					if(dictionary[key] == text[i]){
+						res+= key;
+					}
+				}
+				console.log("keys " + res);
+			}
+
+
+		};
+		$scope.outputText = res;
+	}
+
+	$scope.dictionaryFormation = function () {
 		if(($scope.keyword != null) || ($scope.keyword != undefined) || ($scope.key != null) || ($scope.key != undefined) || (parseInt($scope.key) < 25)) {
 			var dictionary = {'a':'',  'b':'', 'c':'', 'd':'', 'e':'', 'f':'', 'g':'', 'h':'', 'i':'', 'j':'', 'k':'', 'l':'', 'm':'', 'n':'', 'o':'', 'p':'', 'q':'', 'r':'', 's':'', 't':'', 'u':'', 'v':'', 'w':'', 'x':'', 'y':'', 'z':''
 			}, startPosition = parseInt($scope.key), keywordLength = $scope.keyword.length, currentPosition = startPosition;
-			console.log('fdf');
-			// to do properties from array
 			var array = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 			for (var i = 0;  i < keywordLength; i++) {
 				if (currentPosition > 25) {
@@ -44,33 +78,13 @@ angular.module('myApp.view1', ['ngRoute'])
 			console.log(array);
 			console.log(dictionary);
 
-			var text = $scope.inputText.toLowerCase();
-			var res = "";
-			for (var i = 0; i < text.length; i++) {
-				if (text[i] == " ") {
-					res+= " ";
-				}
-				else if (text[i] == ",") {
-					res+= ",";
-				}
-				else if (text[i] == ".") {
-					res+= ".";
-				}
-				else if (text[i] == "?") {
-					res+= "?";
-				}
-				else if (text[i] == "!") {
-					res+= "!";
-				}
-				else {				
-					res+= dictionary[text[i]];
-					console.log(dictionary[text[i]]);
-				}
-
-			};
-			$scope.outputText = res;
+			return dictionary;
 		}
+	}
 
+	$scope.performAction = function () {
+		var dictionary = $scope.dictionaryFormation();
+		$scope.resultFormation(dictionary);
 
 	}
 
