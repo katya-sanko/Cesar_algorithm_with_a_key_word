@@ -26,3 +26,9 @@ h2 {
   padding: 4px;
   text-align: center;
 }
+
+.error-input{
+	color: #DC143C;
+	opacity: 0.6;
+	padding-left: 10px;
+}

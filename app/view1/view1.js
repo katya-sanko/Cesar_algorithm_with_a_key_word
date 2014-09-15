@@ -12,6 +12,7 @@ angular.module('myApp.view1', ['ngRoute'])
 .controller('View1Ctrl', ['$scope', function($scope) {
 	$scope.switcher = true;
 	$scope.onlyNumbers = /^\d+$/;
+	$scope.onlyLetters = /^[a-zA-Z]+$/;
 	$scope.inputText = "Some text to encrypt.";
 	$scope.outputText = "Result of encryption.";
 	

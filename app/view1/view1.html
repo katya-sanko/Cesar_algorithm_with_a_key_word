@@ -4,8 +4,8 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="well well-lg">
                 <form name="form">
-                    <input type="text" name="key" class="form-control top-buffer" placeholder="Key" ng-model="key" ng-pattern="onlyNumbers" required>{{form.key.$valid}}
-                    <input type="text" class="form-control top-buffer" placeholder="Keyword" ng-model="keyword" required>
+                    <input type="text" name="key" class="form-control top-buffer" placeholder="Key" ng-model="key" ng-pattern="onlyNumbers" required><span class="error-input">{{form.key.$valid ? '' : 'Not valid key. Please, enter numbers from 0 to 25.'}}</span>
+                    <input type="text" class="form-control top-buffer" placeholder="Keyword" ng-model="keyword" ng-pattern="onlyLetters" required><span class="error-input">{{form.key.$valid ? '' : 'Not valid keyword. Please, enter without symbols.'}}</span>
                     <div class="top-buffer border-wrapper">
                         <input type="radio" id="encrypt" name="radios" ng-model="switcher" ng-value="true" checked>
                         <label for="encrypt">Encrypt</label>
